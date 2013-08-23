@@ -1,13 +1,13 @@
 <?php
   include 'libs/SendGrid_loader.php';
-  
-  $sendgrid = new SendGrid('<sendgrid_username>', '<sendgrid_password>');
+
+  $sendgrid = new SendGrid(getenv('SENDGRID_USERNAME'), getenv('SENDGRID_PASSWORD'));
 
   $mail = new SendGrid\Mail();
   $mail->
-    addTo('foo@bar.com')->
-    setFrom('me@bar.com')->
-    setSubject('Subject goes here')->
+    addTo('ffranz@redhat.com')->
+    setFrom('fabianofranz@coolendar.com')->
+    setSubject('Sendgrid QuickStart ' . date('l jS \of F Y h:i:s A'))->
     setText('Hello World!')->
     setHtml('Hello World!');
 
